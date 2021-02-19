@@ -386,7 +386,7 @@ void Margay::SDTest()
 
 	Serial.print("SD: ");
 	delay(5); //DEBUG!
-	if(CardPressent) {
+	if(!CardPressent) {
 		Serial.println(F(" NO CARD"));
     	SDErrorTemp = true;
     	SDError = true; //Card not inserted
@@ -396,7 +396,7 @@ void Margay::SDTest()
     	SDErrorTemp = true;
   	}
 
-  	if(!CardPressent) {
+  	if(CardPressent) {
   		SD.mkdir("NW");  //Create NW folder (if not already present)
   		SD.chdir("/NW"); //Move file pointer into NW folder (at root level)
   		SD.mkdir(SN); //Make directory with serial number as name
